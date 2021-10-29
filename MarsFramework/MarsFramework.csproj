@@ -1,0 +1,639 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\NUnit3TestAdapter.3.13.0\build\net35\NUnit3TestAdapter.props" Condition="Exists('..\packages\NUnit3TestAdapter.3.13.0\build\net35\NUnit3TestAdapter.props')" />
+  <Import Project="..\packages\NUnit.3.11.0\build\NUnit.props" Condition="Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1CC741FF-012B-4180-AAED-68A98B97E06E}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MarsFramework</RootNamespace>
+    <AssemblyName>MarsFramework</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoItX3.Assembly, Version=3.0.0.0, Culture=neutral, PublicKeyToken=a646454c8d475470, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoItX.Dotnet.3.3.14.5\lib\AutoItX3.Assembly.dll</HintPath>
+    </Reference>
+    <Reference Include="DnsClient, Version=1.0.7.0, Culture=neutral, PublicKeyToken=4574bb5573c51424, processorArchitecture=MSIL">
+      <HintPath>..\packages\DnsClient.1.0.7\lib\net45\DnsClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Excel, Version=2.1.2.3, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelDataReader.2.1.2.3\lib\net45\Excel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="HtmlAgilityPack, Version=1.9.0.0, Culture=neutral, PublicKeyToken=bd319b19eaf3b43a, processorArchitecture=MSIL">
+      <HintPath>..\packages\HtmlAgilityPack.1.9.0\lib\Net45\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=1.1.0.145, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>..\packages\SharpZipLib.1.1.0\lib\net45\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.JScript" />
+    <Reference Include="MongoDB.Bson, Version=2.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.7.3\lib\net45\MongoDB.Bson.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver, Version=2.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.7.3\lib\net45\MongoDB.Driver.dll</HintPath>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.7.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.7.3\lib\net45\MongoDB.Driver.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.core, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.WithFramework.2.0.0\lib\nunit.core.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.core.interfaces, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.WithFramework.2.0.0\lib\nunit.core.interfaces.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="nunit.framework, Version=3.11.0.0, Culture=neutral, PublicKeyToken=2638cd05610744eb, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnit.3.11.0\lib\net45\nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.util, Version=2.6.4.14350, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.WithFramework.2.0.0\lib\nunit.util.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="NUnit.VisualStudio.TestAdapter, Version=2.0.0.0, Culture=neutral, PublicKeyToken=4cb40d35494691ac, processorArchitecture=MSIL">
+      <HintPath>..\packages\NUnitTestAdapter.WithFramework.2.0.0\lib\NUnit.VisualStudio.TestAdapter.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.10.0.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.10.0\lib\net45\RazorEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="RelevantCodes.ExtentReports, Version=1.4.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExtentReports.2.41.0\lib\RelevantCodes.ExtentReports.dll</HintPath>
+    </Reference>
+    <Reference Include="SeleniumExtras.WaitHelpers, Version=3.11.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DotNetSeleniumExtras.WaitHelpers.3.11.0\lib\net45\SeleniumExtras.WaitHelpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.0\lib\netstandard1.1\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WebDriver, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.WebDriver.3.141.0\lib\net45\WebDriver.dll</HintPath>
+    </Reference>
+    <Reference Include="WebDriver.Support, Version=3.141.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Selenium.Support.3.141.0\lib\net45\WebDriver.Support.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Config\MarsResource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MarsResource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Global\Base.cs" />
+    <Compile Include="Global\GlobalDefinitions.cs" />
+    <Compile Include="Global\ExtensionBase.cs" />
+    <Compile Include="obj\Debug\.NETFramework,Version=v4.5.2.AssemblyAttributes.cs" />
+    <Compile Include="Pages\Chat.cs" />
+    <Compile Include="Pages\ManageListings.cs" />
+    <Compile Include="Pages\ManageRequest.cs" />
+    <Compile Include="Pages\Notification.cs" />
+    <Compile Include="Pages\Password.cs" />
+    <Compile Include="Pages\Profile.cs" />
+    <Compile Include="Pages\SearchSkill.cs" />
+    <Compile Include="Pages\ShareSkill.cs" />
+    <Compile Include="Pages\SignIn.cs" />
+    <Compile Include="Pages\SignUp.cs" />
+    <Compile Include="Test\Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Config\MarsResource.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>MarsResource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="ExcelData\ShareSkills_TestData.xlsx" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\packages\WebDriver.ChromeDriver.win32.2.41.0\content\chromedriver.exe">
+      <Link>chromedriver.exe</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="bin\Debug\MarsFramework.dll" />
+    <Content Include="bin\Debug\MarsFramework.pdb" />
+    <Content Include="chromedriver.exe" />
+    <Content Include="Config\XMLFile.xml" />
+    <Content Include="ExcelData\Test.txt" />
+    <Content Include="TestReports\ExtentReports\Test.html" />
+    <Content Include="TestReports\ExtentReports\TestReport.html" />
+    <Content Include="TestReports\Screenshots\AddedEducation05-07-20217_36.jpeg" />
+    <Content Include="TestReports\Screenshots\AddedEducation05-12-202112_09.jpeg" />
+    <Content Include="TestReports\Screenshots\AddedEducation05-15-202115_01.jpeg" />
+    <Content Include="TestReports\Screenshots\AddedEducation05-21-202121_38.jpeg" />
+    <Content Include="TestReports\Screenshots\AddedEducation05-24-202124_17.jpeg" />
+    <Content Include="TestReports\Screenshots\AddedEducation05-28-202128_59.jpeg" />
+    <Content Include="TestReports\Screenshots\AddedEducation05-32-202132_20.jpeg" />
+    <Content Include="TestReports\Screenshots\AddedEducation06-27-202127_37.jpeg" />
+    <Content Include="TestReports\Screenshots\AddedEducation06-33-202133_13.jpeg" />
+    <Content Include="TestReports\Screenshots\AddedEducation06-45-202145_23.jpeg" />
+    <Content Include="TestReports\Screenshots\AddedEducation07-08-20218_56.jpeg" />
+    <Content Include="TestReports\Screenshots\AddedEducation10-11-202111_26.jpeg" />
+    <Content Include="TestReports\Screenshots\AddedEducation10-51-202151_16.jpeg" />
+    <Content Include="TestReports\Screenshots\Certficate Added10-01-20211_55.jpeg" />
+    <Content Include="TestReports\Screenshots\Certficate Added10-03-20213_12.jpeg" />
+    <Content Include="TestReports\Screenshots\Certficate Added10-07-20217_09.jpeg" />
+    <Content Include="TestReports\Screenshots\Certficate Added10-52-202152_01.jpeg" />
+    <Content Include="TestReports\Screenshots\Certficate deleted10-07-20217_24.jpeg" />
+    <Content Include="TestReports\Screenshots\Certficate deleted10-52-202152_15.jpeg" />
+    <Content Include="TestReports\Screenshots\Certficate updated10-02-20212_04.jpeg" />
+    <Content Include="TestReports\Screenshots\Certficate updated10-03-20213_22.jpeg" />
+    <Content Include="TestReports\Screenshots\Certficate updated10-07-20217_18.jpeg" />
+    <Content Include="TestReports\Screenshots\Certficate updated10-52-202152_10.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSearchSuccessful07-00-20210_04.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSearchSuccessful07-01-20211_25.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSearchSuccessful07-03-20213_10.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSearchSuccessful07-07-20217_41.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSearchSuccessful07-07-20217_42.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSearchSuccessful07-47-202147_15.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSearchSuccessful07-57-202157_29.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSearchSuccessful07-58-202158_41.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSearchSuccessful10-09-20219_09.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSuccessful07-01-20211_05.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSuccessful07-01-20211_57.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSuccessful07-02-20212_50.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSuccessful07-05-20215_52.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSuccessful07-07-20217_29.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSuccessful07-46-202146_58.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSuccessful07-57-202157_10.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSuccessful07-58-202158_21.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSuccessful07-59-202159_44.jpeg" />
+    <Content Include="TestReports\Screenshots\ChatSuccessful10-08-20218_52.jpeg" />
+    <Content Include="TestReports\Screenshots\completed successful10-37-202137_50.jpeg" />
+    <Content Include="TestReports\Screenshots\Decline successful10-38-202138_14.jpeg" />
+    <Content Include="TestReports\Screenshots\Description added10-16-202116_31.jpeg" />
+    <Content Include="TestReports\Screenshots\Description added10-36-202136_17.jpeg" />
+    <Content Include="TestReports\Screenshots\Description added10-49-202149_30.jpeg" />
+    <Content Include="TestReports\Screenshots\EditedEducation05-07-20217_51.jpeg" />
+    <Content Include="TestReports\Screenshots\EditedEducation05-12-202112_25.jpeg" />
+    <Content Include="TestReports\Screenshots\EditedEducation05-15-202115_17.jpeg" />
+    <Content Include="TestReports\Screenshots\EditedEducation05-21-202121_53.jpeg" />
+    <Content Include="TestReports\Screenshots\EditedEducation05-24-202124_33.jpeg" />
+    <Content Include="TestReports\Screenshots\EditedEducation05-29-202129_14.jpeg" />
+    <Content Include="TestReports\Screenshots\EditedEducation05-32-202132_36.jpeg" />
+    <Content Include="TestReports\Screenshots\EditedEducation06-27-202127_52.jpeg" />
+    <Content Include="TestReports\Screenshots\EditedEducation06-33-202133_29.jpeg" />
+    <Content Include="TestReports\Screenshots\EditedEducation06-45-202145_38.jpeg" />
+    <Content Include="TestReports\Screenshots\EditedEducation07-09-20219_11.jpeg" />
+    <Content Include="TestReports\Screenshots\EditedEducation10-11-202111_42.jpeg" />
+    <Content Include="TestReports\Screenshots\EditedEducation10-51-202151_31.jpeg" />
+    <Content Include="TestReports\Screenshots\Education deleted10-11-202111_48.jpeg" />
+    <Content Include="TestReports\Screenshots\Education deleted10-51-202151_38.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd07-11-202111_32.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd09-08-20218_23.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd09-12-202112_47.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd09-32-202132_14.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd09-39-202139_36.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd09-42-202142_22.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd09-44-202144_08.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd09-45-202145_58.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd09-47-202147_00.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd09-51-202151_25.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd09-52-202152_54.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd09-54-202154_33.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd09-56-202156_44.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-02-20212_04.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-04-20214_38.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-06-20216_50.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-09-20219_35.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-12-202112_03.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-14-202114_30.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-17-202117_07.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-19-202119_18.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-22-202122_34.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-24-202124_18.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-26-202126_59.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-30-202130_05.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-37-202137_00.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-38-202138_38.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-41-202141_07.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-43-202143_32.jpeg" />
+    <Content Include="TestReports\Screenshots\languageAdd10-50-202150_02.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification Delete Successful07-42-202142_57.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification Delete Successful10-11-202111_35.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful07-34-202134_57.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful07-42-202142_56.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-01-20211_28.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-01-20211_34.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-04-20214_14.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-04-20214_44.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-06-20216_34.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-07-20217_21.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-07-20217_45.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-08-20218_45.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-08-20218_47.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-09-20219_48.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-11-202111_27.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-19-202119_06.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-19-202119_47.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-39-202139_08.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-46-202146_26.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-49-202149_04.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-52-202152_42.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-53-202153_31.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-55-202155_44.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-57-202157_02.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-59-202159_24.jpeg" />
+    <Content Include="TestReports\Screenshots\Notification view Successful10-59-202159_32.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-01-20211_02.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-02-20212_25.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-04-20214_01.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-05-20215_12.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-12-202112_34.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-17-202117_07.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-18-202118_58.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-22-202122_55.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-24-202124_44.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-25-202125_45.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-27-202127_35.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-30-202130_57.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-40-202140_33.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-41-202141_59.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-45-202145_55.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-51-202151_16.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-52-202152_43.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-54-202154_03.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-55-202155_37.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-56-202156_46.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-57-202157_15.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-57-202157_24.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-59-202159_10.jpeg" />
+    <Content Include="TestReports\Screenshots\Report05-59-202159_47.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-00-20210_16.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-03-20213_17.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-05-20215_12.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-07-20217_54.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-10-202110_42.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-12-202112_49.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-14-202114_55.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-17-202117_50.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-19-202119_41.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-23-202123_55.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-27-202127_59.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-28-202128_21.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-29-202129_33.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-31-202131_29.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-32-202132_53.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-33-202133_35.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-35-202135_01.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-40-202140_52.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-43-202143_20.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-45-202145_45.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-52-202152_33.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-55-202155_07.jpeg" />
+    <Content Include="TestReports\Screenshots\Report06-57-202157_58.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-00-20210_04.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-01-20211_25.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-03-20213_01.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-03-20213_10.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-05-20215_59.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-06-20216_46.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-07-20217_41.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-07-20217_42.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-09-20219_18.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-10-202110_23.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-12-202112_30.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-12-202112_58.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-13-202113_42.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-14-202114_18.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-15-202115_46.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-17-202117_35.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-35-202135_58.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-36-202136_15.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-37-202137_51.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-42-202142_57.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-47-202147_15.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-51-202151_23.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-53-202153_42.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-54-202154_29.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-55-202155_57.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-57-202157_29.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-58-202158_41.jpeg" />
+    <Content Include="TestReports\Screenshots\Report07-59-202159_53.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-00-20210_56.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-03-20213_52.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-05-20215_36.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-05-20215_53.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-07-20217_04.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-09-20219_21.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-13-202113_37.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-15-202115_40.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-18-202118_47.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-19-202119_38.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-21-202121_46.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-21-202121_54.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-23-202123_08.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-29-202129_42.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-30-202130_00.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-32-202132_03.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-32-202132_56.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-33-202133_39.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-34-202134_35.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-35-202135_46.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-36-202136_27.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-37-202137_13.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-38-202138_07.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-39-202139_11.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-39-202139_30.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-39-202139_50.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-41-202141_28.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-42-202142_37.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-43-202143_51.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-44-202144_19.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-45-202145_59.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-47-202147_06.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-47-202147_36.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-49-202149_06.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-51-202151_32.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-52-202152_55.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-54-202154_34.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-55-202155_22.jpeg" />
+    <Content Include="TestReports\Screenshots\Report09-56-202156_45.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-02-20212_09.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-02-20212_22.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-02-20212_37.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-03-20213_11.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-03-20213_31.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-04-20214_52.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-07-20217_07.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-07-20217_24.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-09-20219_09.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-09-20219_52.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-10-202110_26.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-11-202111_08.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-11-202111_35.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-11-202111_48.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-12-202112_21.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-15-202115_01.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-15-202115_10.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-15-202115_55.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-16-202116_39.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-17-202117_35.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-18-202118_39.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-19-202119_46.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-20-202120_30.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-22-202122_29.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-23-202123_02.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-24-202124_36.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-27-202127_02.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-27-202127_36.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-29-202129_55.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-30-202130_41.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-32-202132_59.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-33-202133_17.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-36-202136_21.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-37-202137_29.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-37-202137_50.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-38-202138_14.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-39-202139_14.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-40-202140_03.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-41-202141_38.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-43-202143_57.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-47-202147_08.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-49-202149_16.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-49-202149_34.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-50-202150_31.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-51-202151_38.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-52-202152_15.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-54-202154_11.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-55-202155_50.jpeg" />
+    <Content Include="TestReports\Screenshots\Report10-58-202158_16.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-13-202113_12.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-13-202113_46.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-14-202114_12.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-15-202115_14.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-17-202117_23.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-18-202118_24.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-18-202118_46.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-21-202121_34.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-22-202122_07.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-23-202123_51.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-29-202129_11.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-31-202131_07.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-31-202131_41.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-32-202132_04.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-35-202135_34.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-35-202135_51.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-36-202136_25.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-37-202137_17.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-39-202139_28.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-40-202140_37.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-41-202141_11.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-42-202142_02.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-43-202143_39.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-44-202144_51.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-47-202147_16.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-47-202147_36.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-47-202147_51.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-48-202148_09.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-48-202148_35.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-48-202148_37.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-50-202150_14.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-51-202151_46.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-52-202152_17.jpeg" />
+    <Content Include="TestReports\Screenshots\Report23-52-202152_39.jpeg" />
+    <Content Include="TestReports\Screenshots\Report24-05-20215_40.jpeg" />
+    <Content Include="TestReports\Screenshots\Report24-06-20216_18.jpeg" />
+    <Content Include="TestReports\Screenshots\Report24-06-20216_46.jpeg" />
+    <Content Include="TestReports\Screenshots\Report25-13-202113_54.jpeg" />
+    <Content Include="TestReports\Screenshots\Report25-14-202114_29.jpeg" />
+    <Content Include="TestReports\Screenshots\Report25-14-202114_51.jpeg" />
+    <Content Include="TestReports\Screenshots\Report27-53-202153_34.jpeg" />
+    <Content Include="TestReports\Screenshots\Report27-54-202154_10.jpeg" />
+    <Content Include="TestReports\Screenshots\Report27-54-202154_32.jpeg" />
+    <Content Include="TestReports\Screenshots\Search filtered09-02-20212_47.jpeg" />
+    <Content Include="TestReports\Screenshots\Search filtered09-16-202116_41.jpeg" />
+    <Content Include="TestReports\Screenshots\Search filtered09-18-202118_37.jpeg" />
+    <Content Include="TestReports\Screenshots\Search filtered09-20-202120_53.jpeg" />
+    <Content Include="TestReports\Screenshots\Search filtered09-22-202122_44.jpeg" />
+    <Content Include="TestReports\Screenshots\Search filtered09-24-202124_55.jpeg" />
+    <Content Include="TestReports\Screenshots\Search filtered09-31-202131_35.jpeg" />
+    <Content Include="TestReports\Screenshots\Search filtered09-48-202148_45.jpeg" />
+    <Content Include="TestReports\Screenshots\Search filtered10-11-202111_08.jpeg" />
+    <Content Include="TestReports\Screenshots\Skills Edited Successfully_22-56-2021_5602.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully05-02-20212_25.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully07-10-202110_23.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully10-15-202115_10.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully10-32-202132_59.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully10-47-202147_08.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully10-55-202155_49.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully22-03-20213_28.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully22-03-20213_43.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully22-06-20216_09.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully22-09-20219_42.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully22-15-202115_39.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully22-18-202118_16.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully22-20-202120_00.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully22-25-202125_23.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully22-39-202139_29.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully22-43-202143_02.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully22-55-202155_35.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully22-57-202157_14.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-13-202113_12.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-17-202117_23.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-20-202120_21.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-21-202121_34.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-29-202129_10.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-30-202130_31.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-31-202131_07.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-32-202132_17.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-35-202135_34.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-35-202135_46.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-35-202135_51.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-36-202136_59.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-39-202139_12.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-39-202139_28.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-40-202140_36.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-42-202142_01.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-43-202143_38.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-44-202144_50.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-47-202147_15.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-47-202147_36.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully23-51-202151_46.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully24-05-20215_40.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully25-13-202113_54.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully27-53-202153_34.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully_21-05-2021_509.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully_21-06-2021_624.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully_21-09-2021_942.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully_21-14-2021_1451.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully_21-23-2021_2351.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully_21-26-2021_2617.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully_21-32-2021_3247.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully_21-33-2021_3349.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully_21-39-2021_3948.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully_21-43-2021_4341.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully_21-49-2021_4902.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully_21-51-2021_5101.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully_21-53-2021_5317.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsAddedSuccessfully_21-55-2021_5522.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsdeleteSuccessful05-04-20214_01.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsdeleteSuccessful05-56-202156_46.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsdeleteSuccessful07-13-202113_42.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsdeleteSuccessful10-15-202115_55.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsdeleteSuccessful22-01-20211_42.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsdeleteSuccessful22-56-202156_30.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsdeleteSuccessful23-18-202118_45.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsdeleteSuccessful23-32-202132_04.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsdeleteSuccessful23-48-202148_35.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsdeleteSuccessful23-48-202148_37.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsdeleteSuccessful23-52-202152_39.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsdeleteSuccessful24-06-20216_46.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsdeleteSuccessful25-14-202114_51.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsdeleteSuccessful27-54-202154_32.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully05-03-20213_53.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully05-51-202151_08.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully07-13-202113_34.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully10-15-202115_48.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-02-20212_19.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-03-20213_21.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-06-20216_42.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-11-202111_17.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-12-202112_17.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-20-202120_33.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-22-202122_00.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-26-202126_40.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-28-202128_33.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-38-202138_22.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-39-202139_03.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-42-202142_09.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-43-202143_32.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-48-202148_34.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-56-202156_08.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully22-59-202159_39.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully23-13-202113_46.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully23-22-202122_07.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully23-47-202147_51.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully23-48-202148_09.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully23-52-202152_17.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully24-06-20216_18.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully25-14-202114_29.jpeg" />
+    <Content Include="TestReports\Screenshots\SkillsEditedSuccessfully27-54-202154_10.jpeg" />
+    <Content Include="TestReports\Screenshots\TestReportsReport_17-57-2021_5708.jpeg" />
+    <Content Include="TestReports\Screenshots\TestReportsReport_18-11-2021_1120.jpeg" />
+    <Content Include="TestReports\Screenshots\TestReportsReport_19-24-2021_2433.jpeg" />
+    <Content Include="TestReports\Screenshots\TestReportsReport_19-26-2021_2622.jpeg" />
+    <Content Include="TestReports\Screenshots\TestReportsReport_19-32-2021_3202.jpeg" />
+    <Content Include="TestReports\Screenshots\ViewSuccessfully05-03-20213_34.jpeg" />
+    <Content Include="TestReports\Screenshots\ViewSuccessfully05-44-202144_54.jpeg" />
+    <Content Include="TestReports\Screenshots\ViewSuccessfully05-50-202150_48.jpeg" />
+    <Content Include="TestReports\Screenshots\ViewSuccessfully05-55-202155_25.jpeg" />
+    <Content Include="TestReports\Screenshots\ViewSuccessfully07-13-202113_19.jpeg" />
+    <Content Include="TestReports\Screenshots\ViewSuccessfully10-15-202115_37.jpeg" />
+    <Content Include="TestReports\Screenshots\Withdraw successful09-39-202139_11.jpeg" />
+    <Content Include="TestReports\Screenshots\Withdraw successful10-24-202124_36.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\NUnit.3.11.0\build\NUnit.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit.3.11.0\build\NUnit.props'))" />
+    <Error Condition="!Exists('..\packages\NUnit3TestAdapter.3.13.0\build\net35\NUnit3TestAdapter.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\NUnit3TestAdapter.3.13.0\build\net35\NUnit3TestAdapter.props'))" />
+    <Error Condition="!Exists('..\packages\AutoItX.Dotnet.3.3.14.5\build\AutoItX.Dotnet.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\AutoItX.Dotnet.3.3.14.5\build\AutoItX.Dotnet.targets'))" />
+    <Error Condition="!Exists('..\packages\Selenium.WebDriver.ChromeDriver.93.0.4577.1500\build\Selenium.WebDriver.ChromeDriver.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Selenium.WebDriver.ChromeDriver.93.0.4577.1500\build\Selenium.WebDriver.ChromeDriver.targets'))" />
+  </Target>
+  <Import Project="..\packages\AutoItX.Dotnet.3.3.14.5\build\AutoItX.Dotnet.targets" Condition="Exists('..\packages\AutoItX.Dotnet.3.3.14.5\build\AutoItX.Dotnet.targets')" />
+  <Import Project="..\packages\Selenium.WebDriver.ChromeDriver.93.0.4577.1500\build\Selenium.WebDriver.ChromeDriver.targets" Condition="Exists('..\packages\Selenium.WebDriver.ChromeDriver.93.0.4577.1500\build\Selenium.WebDriver.ChromeDriver.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
